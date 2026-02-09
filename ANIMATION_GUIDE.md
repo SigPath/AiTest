@@ -213,7 +213,6 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 - **Personalizacja**: Dodaj imię klienta w description
 - **Multi-brand**: Zmień logo colors przez props
 
-## 🎯 Dlaczego To "Wywala z Butów"?
 
 1. **Fizyka jest AGRESYWNA** - nie ma "miękkiego" wejścia, wszystko EKSPLODUJE
 2. **Layering** - 10+ warstw wizualnych nakładających się = GŁĘBIA
