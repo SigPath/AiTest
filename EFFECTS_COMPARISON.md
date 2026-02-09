@@ -114,8 +114,8 @@ Frame 60:   FULL SPECTACLE mode
 - **TERAZ**: EKSPLOZYWNE, ultra-dynamiczne
 
 ### "Wow Factor"
-- **PRZED**: 7/10 - Profesjonalne
-- **TERAZ**: 12/10 - WYWALA Z BUTÓW
+- **PRZED**: 7/10
+- **TERAZ**: 12/10
 
 ## 💾 Performance Impact
 
