@@ -1,6 +1,6 @@
 # �💥 Generator Wideo dla Retail Media - ULTRA EXTREME EDITION 💥🔥
 
-MVP gotowe do produkcji - programatyczne generowanie **EKSTREMALNIE SPEKTAKULARNYCH** wideo reklamowych, które **WYWALA Z BUTÓW**.
+MVP gotowe do produkcji - programatyczne generowanie **EKSTREMALNIE SPEKTAKULARNYCH** wideo reklamowych.
 
 ## 🎯 Przegląd
 
