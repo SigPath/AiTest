@@ -1,0 +1,22 @@
+{
+  "name": "retail-video-generator",
+  "version": "1.0.0",
+  "description": "Production-ready MVP for programmatic retail video generation using Remotion",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render RetailAd out/video.mp4",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.0",
+    "eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
