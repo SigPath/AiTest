@@ -28,12 +28,15 @@ import data from './data/data.json';
  */
 
 const RemotionRoot = () => {
+  const slideDuration = 90;
+  const totalDuration = data.products.length * slideDuration;
+  
   return (
     <>
       <Composition
         id="RetailAd"
         component={RetailAd}
-        durationInFrames={180}
+        durationInFrames={totalDuration}
         fps={30}
         width={1920}
         height={1080}

@@ -13,6 +13,13 @@
       "price": "9,99 zł",
       "promoText": "Delikatny smak, pełnia natury",
       "backgroundColor": "#2E5A3D"
+    },
+    {
+      "brand": "Bella Italia",
+      "product": "Pizza Margaritta",
+      "price": "14,99 zł",
+      "promoText": "Klasyczna pizza z San Marzano",
+      "backgroundColor": "#8B2C2C"
     }
   ]
 }
