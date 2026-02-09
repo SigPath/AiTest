@@ -1,7 +1,18 @@
 {
-  "brand": "GreenHive",
-  "product": "Eko Miód Leśny",
-  "price": "19,99 zł",
-  "promoText": "Naturalnie z polskich lasów",
-  "backgroundColor": "#0F3D2E"
+  "products": [
+    {
+      "brand": "GreenHive",
+      "product": "Eko Miód Leśny",
+      "price": "19,99 zł",
+      "promoText": "Naturalnie z polskich lasów",
+      "backgroundColor": "#0F3D2E"
+    },
+    {
+      "brand": "GreenHive",
+      "product": "Miód Akacjowy Premium",
+      "price": "9,99 zł",
+      "promoText": "Delikatny smak, pełnia natury",
+      "backgroundColor": "#2E5A3D"
+    }
+  ]
 }

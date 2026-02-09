@@ -57,20 +57,32 @@ Wyjście: `out/video.mp4` (Full HD, 6 sekund, 30fps)
 
 ## 📊 Format Danych
 
-Edytuj `src/data/data.json`, aby zmienić zawartość pierwszego slajdu:
+Edytuj `src/data/data.json`, aby zmienić zawartość wideo. Struktura obsługuje wiele produktów w formacie array:
 
 ```json
 {
-  "brand": "GreenHive",
-  "product": "Eko Miód Leśny",
-  "price": "19,99 zł",
-  "promoText": "Naturalnie z polskich lasów",
-  "backgroundColor": "#0F3D2E"
+  "products": [
+    {
+      "brand": "GreenHive",
+      "product": "Eko Miód Leśny",
+      "price": "19,99 zł",
+      "promoText": "Naturalnie z polskich lasów",
+      "backgroundColor": "#0F3D2E"
+    },
+    {
+      "brand": "GreenHive",
+      "product": "Miód Akacjowy Premium",
+      "price": "9,99 zł",
+      "promoText": "Delikatny smak, pełnia natury",
+      "backgroundColor": "#2E5A3D"
+    }
+  ]
 }
 ```
 
-Drugi produkt jest zdefiniowany w `src/compositions/RetailAd.jsx`.
-Aby dodać kolejne produkty, dodaj więcej komponentów `<Sequence>`.
+**Aby dodać kolejne produkty:** po prostu dodaj więcej obiektów do array `products` - żadnych zmian w kodzie!
+
+**Dla kompatybilności wstecznej:** Stara struktura (pojedynczy produkt) również działa.
 
 ## 🎬 Timeline Animacji (dla każdego slajdu)
 

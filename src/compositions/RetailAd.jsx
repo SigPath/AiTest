@@ -95,30 +95,27 @@ const ProductSlide = ({ productData }) => {
  * WHY Sequence: Clean way to compose time-based content.
  * Each sequence resets frame count to 0, so animations work the same.
  * 
- * SCALING: To add more products, just add more <Sequence> blocks
- * or map over an array of product data.
+ * WHY map: Products come from data array, making it truly data-driven.
+ * To add more products, just add them to data.json - no code changes needed.
+ * 
+ * SCALING: Perfect for batch rendering - load different data.json files
+ * and generate videos automatically.
  */
 export const RetailAd = ({ data }) => {
-  // Second product data
-  const product2 = {
-    brand: "GreenHive",
-    product: "Miód Akacjowy Premium",
-    price: "9,99 zł",
-    promoText: "Delikatny smak, pełnia natury",
-    backgroundColor: "#2E5A3D"
-  };
+  const products = data.products || [data];
+  const slideDuration = 90; // 3 seconds at 30fps
 
   return (
     <>
-      {/* First product - frames 0-89 (3 seconds) */}
-      <Sequence from={0} durationInFrames={90}>
-        <ProductSlide productData={data} />
-      </Sequence>
-
-      {/* Second product - frames 90-179 (3 seconds) */}
-      <Sequence from={90} durationInFrames={90}>
-        <ProductSlide productData={product2} />
-      </Sequence>
+      {products.map((product, index) => (
+        <Sequence 
+          key={index}
+          from={index * slideDuration} 
+          durationInFrames={slideDuration}
+        >
+          <ProductSlide productData={product} />
+        </Sequence>
+      ))}
     </>
   );
 };
