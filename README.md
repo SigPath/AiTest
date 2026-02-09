@@ -4,7 +4,7 @@ MVP gotowe do produkcji - programatyczne generowanie **EKSTREMALNIE SPEKTAKULARN
 
 ## 🎯 Przegląd
 
-Generuje profesjonalne 9-sekundowe wideo reklamowe Full HD (1920x1080) dla ekranów retail media z **efektami wizualnymi.
+Generuje profesjonalne 9-sekundowe wideo reklamowe Full HD (1920x1080) dla ekranów retail media z efektami wizualnymi.
 **🔥 ULTRA-EKSTREMALNE FUNKCJE:**
 - 💥 **Ultra-Aggressive Spring**: Logo i produkty EKSPLODUJĄ na ekran (stiffness: 300-400, damping: 6-8)
 - ✨ **12-Particle System**: Cząsteczki wylatują wokół ceny z rotacją 720°
