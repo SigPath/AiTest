@@ -1,25 +1,25 @@
-# Project Structure
+# Struktura Projektu
 
-This document describes the **production-optimized** codebase structure.
+Ten dokument opisuje **produkcyjnie zoptymalizowaną** strukturę bazy kodu.
 
-> **Update (Luty 2026):** Projekt przeszedł Principal Engineer code review i optymalizację  
-> 📊 Performance gain: 35-45% | Code quality: ⭐⭐⭐⭐⭐ Production-ready
+> **Aktualizacja (Luty 2026):** Projekt przeszedł Principal Engineer code review i optymalizację  
+> 📊 Wzrost wydajności: 35-45% | Jakość kodu: ⭐⭐⭐⭐⭐ Gotowe do produkcji
 
-## Directory Organization
+## Organizacja Katalogów
 
 ```
 src/
-├── index.js                      # Remotion root configuration
-├── constants.js                  # Global constants (colors, timings, dimensions)
+├── index.js                      # Konfiguracja główna Remotion
+├── constants.js                  # Globalne stałe (kolory, timings, wymiary)
 ├── compositions/
-│   └── RetailAd.jsx             # Main composition (clean, ~60 lines)
+│   └── RetailAd.jsx             # Główna kompozycja (czysty kod, ~60 linii)
 ├── components/
-│   ├── effects/                 # Visual effects components
+│   ├── effects/                 # Komponenty efektów wizualnych
 │   │   ├── index.js            
-│   │   ├── Particle.jsx        # Animated particles
-│   │   ├── SuperGlowEffect.jsx # Glow animations
-│   │   └── EnergyRing.jsx      # Ring pulse effects
-│   └── ui/                      # UI components
+│   │   ├── Particle.jsx        # Animowane cząsteczki
+│   │   ├── SuperGlowEffect.jsx # Animacje glow
+│   │   └── EnergyRing.jsx      # Efekty pulsujących pierścieni
+│   └── ui/                      # Komponenty UI
 │       ├── index.js
 │       ├── DynamicBackground.jsx
 │       ├── BrandLogo.jsx
@@ -27,31 +27,31 @@ src/
 │       ├── AnimatedPrice.jsx
 │       └── ProductDescription.jsx
 └── data/
-    └── data.json                # Product data
+    └── data.json                # Dane produktów
 ```
 
-## Key Improvements
+## Kluczowe Usprawnienia
 
-### 1. **Separation of Concerns**
-- Effects separated from UI components
-- Each component has a single responsibility
-- Easy to test and maintain
+### 1. **Separacja Odpowiedzialności**
+- Efekty oddzielone od komponentów UI
+- Każdy komponent ma jedną odpowiedzialność
+- Łatwe testowanie i utrzymywanie
 
-### 2. **Constants Management**
-- All magic numbers moved to `constants.js`
-- Colors, timings, and dimensions centralized
-- Easy to adjust global values
+### 2. **Zarządzanie Stałymi**
+- Wszystkie magiczne liczby przeniesione do `constants.js`
+- Kolory, timings i wymiary scentralizowane
+- Łatwe dostosowywanie wartości globalnych
 
-### 3. **Clean Composition**
-- `RetailAd.jsx` reduced from 172 to ~60 lines
-- Readable and maintainable
-- Easy to understand the structure at a glance
+### 3. **Czysta Kompozycja**
+- `RetailAd.jsx` zredukowany ze 172 do ~60 linii
+- Czytelny i utrzymywalny
+- Łatwe zrozumienie struktury na pierwszy rzut oka
 
-### 4. **Barrel Exports**
-- `index.js` files for cleaner imports
-- Easier to refactor and reorganize
+### 4. **Eksporty Barrel**
+- Pliki `index.js` dla czystszych importów
+- Łatwiejsze refaktoryzowanie i reorganizacja
 
-## Usage Example
+## Przykład Użycia
 
 ```jsx
 import { COLORS, TIMINGS } from './constants';
@@ -59,32 +59,32 @@ import { BrandLogo, AnimatedPrice } from './components/ui';
 import { Particle, EnergyRing } from './components/effects';
 ```
 
-## Benefits
+## Korzyści
 
-- **Maintainability**: Easy to find and update specific components
-- **Reusability**: Components can be used in other projects
-- **Performance**: 35-45% faster, 99.6% less memory allocations
-- **Scalability**: Easy to add new products, effects, or compositions
-- **Readability**: Code is self-documenting with clear structure
-- **Production-Ready**: 5-year maintenance window, zero breaking changes
+- **Utrzymywalność**: Łatwe znajdowanie i aktualizowanie konkretnych komponentów
+- **Wielokrotne użycie**: Komponenty mogą być używane w innych projektach
+- **Wydajność**: 35-45% szybsze, 99,6% mniej alokacji pamięci
+- **Skalowalność**: Łatwe dodawanie nowych produktów, efektów lub kompozycji
+- **Czytelność**: Kod jest samodokumentujący z przejrzystą strukturą
+- **Gotowe do produkcji**: Okno utrzymania 5 lat, zero zmian łamiących
 
-## Performance Optimizations
+## Optymalizacje Wydajnościowe
 
-### Memory Management
-- Pre-allocated arrays (no runtime creation)
-- Static style objects extracted outside components
-- Memoized expensive calculations (transforms, HSL strings)
+### Zarządzanie Pamięcią
+- Wstępnie przydzielone tablice (brak tworzenia w runtime)
+- Obiekty statycznych stylów wyciągnięte poza komponenty
+- Zmemoizowane kosztowne obliczenia (transformacje, stringi HSL)
 
-### CPU Efficiency  
-- Conditional calculations (only when needed)
-- Sine wave instead of 11-keyframe interpolations
-- Reduced string operations per frame
+### Efektywność CPU  
+- Warunkowe obliczenia (tylko gdy potrzebne)
+- Fala sinusoidalna zamiast 11-klatkowej interpolacji
+- Zredukowane operacje na stringach na klatkę
 
-### Maintainability
-- All timings derived from `TIMINGS.slideDuration`
-- Consistent spring configs from `ANIMATION_CONFIG`
-- Named constants instead of magic numbers
+### Utrzymywalność
+- Wszystkie timings wyprowadzone z `TIMINGS.slideDuration`
+- Spójne konfiguracje spring z `ANIMATION_CONFIG`
+- Nazwane stałe zamiast magicznych liczb
 
 ---
 
-📊 **Full technical analysis**: [OPTIMIZATION_REPORT.md](OPTIMIZATION_REPORT.md)
+📊 **Pełna analiza techniczna**: [OPTIMIZATION_REPORT.md](OPTIMIZATION_REPORT.md)
