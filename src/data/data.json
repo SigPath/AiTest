@@ -4,22 +4,19 @@
       "brand": "GreenHive",
       "product": "Eko Miód Leśny",
       "price": "19,99 zł",
-      "promoText": "Naturalnie z polskich lasów",
-      "backgroundColor": "#0F3D2E"
+      "promoText": "Naturalnie z polskich lasów"
     },
     {
       "brand": "GreenHive",
       "product": "Miód Akacjowy Premium",
       "price": "9,99 zł",
-      "promoText": "Delikatny smak, pełnia natury",
-      "backgroundColor": "#2E5A3D"
+      "promoText": "Delikatny smak, pełnia natury"
     },
     {
       "brand": "Bella Italia",
       "product": "Pizza Margaritta",
       "price": "14,99 zł",
-      "promoText": "Klasyczna pizza z San Marzano",
-      "backgroundColor": "#8B2C2C"
+      "promoText": "Klasyczna pizza z San Marzano"
     }
   ]
 }

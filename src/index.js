@@ -1,5 +1,6 @@
 import { Composition, registerRoot } from 'remotion';
 import { RetailAd } from './compositions/RetailAd';
+import { TIMINGS, DIMENSIONS } from './constants';
 import data from './data/data.json';
 
 /**
@@ -11,7 +12,7 @@ import data from './data/data.json';
  * CONFIGURATION EXPLAINED:
  * - id: Unique identifier for the composition (used in CLI rendering)
  * - component: The React component to render
- * - durationInFrames: 180 frames = 6 seconds at 30fps
+ * - durationInFrames: Calculated based on number of products
  * - fps: Standard for web video, smooth enough for motion
  * - width/height: Full HD - standard for digital signage
  * - defaultProps: Data injection point for the composition
@@ -28,8 +29,7 @@ import data from './data/data.json';
  */
 
 const RemotionRoot = () => {
-  const slideDuration = 90;
-  const totalDuration = data.products.length * slideDuration;
+  const totalDuration = data.products.length * TIMINGS.slideDuration;
   
   return (
     <>
@@ -37,9 +37,9 @@ const RemotionRoot = () => {
         id="RetailAd"
         component={RetailAd}
         durationInFrames={totalDuration}
-        fps={30}
-        width={1920}
-        height={1080}
+        fps={TIMINGS.fps}
+        width={DIMENSIONS.width}
+        height={DIMENSIONS.height}
         defaultProps={{
           data: data,
         }}

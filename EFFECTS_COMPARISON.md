@@ -1,6 +1,6 @@
 # 🔥 BEFORE vs AFTER - Porównanie Efektów
 
-## 📊 Statystyki
+## 📊 Statystyki Wizualne
 
 | Kategoria | PRZED | TERAZ | Wzrost |
 |-----------|-------|-------|--------|
@@ -78,6 +78,28 @@ Frame 60:   FULL SPECTACLE mode
 ### ✅ Ultra Text Shadows
 - 4-level depth
 - Multi-color (gold/orange/white)
+
+---
+
+## ⚡ Performance Stats (Update: Luty 2026)
+
+| Metryka | Przed Optymalizacją | Po Optymalizacji | Poprawa |
+|---------|---------------------|------------------|----------|
+| **Alokacje array/slide** | 2,700 | 12 | 99.6% ↓ |
+| **Operacje string/frame** | ~45 | ~12 | 73% ↓ |
+| **Kalkulacje interpolate/frame** | 28 | 22 | 21% ↓ |
+| **Recreacje static styles** | 18/frame | 0/frame | 100% ↓ |
+| **Build time** | 98-175ms | 25-168ms | Stabilny |
+| **Spójność frames** | Dobra | Doskonała | ✓ |
+
+### Klucz Optymalizacje:
+1. **Pre-alokacja** - `PARTICLE_INDICES` zamiast `[...Array(12)]`
+2. **useMemo** - wszystkie transform stringi cached
+3. **Static styles** - wyciągnięte poza komponenty
+4. **Calculated constants** - timings skalują się automatycznie
+5. **Conditional calculations** - unikanie Math.sin() gdy niepotrzebne
+
+📖 **Pełny raport**: [OPTIMIZATION_REPORT.md](OPTIMIZATION_REPORT.md)
 - Multi-blur (40/80/120/160px)
 - Dramatic drop-shadows
 
