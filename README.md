@@ -1,28 +1,28 @@
-# Retail Media Video Generator
+# Generator Wideo dla Retail Media
 
-**Production-Optimized MVP** - High-performance programmatic video generation for retail advertising.
+**Zoptymalizowane MVP dla Produkcji** - Wysokowydajne programatyczne generowanie wideo dla reklam detalicznych.
 
-## Overview
+## Przegląd
 
-Generates professional 9-second Full HD (1920×1080) video advertisements for retail media displays with advanced visual effects.
+Generuje profesjonalne 9-sekundowe reklamy wideo w Full HD (1920×1080) dla ekranów retail media z zaawansowanymi efektami wizualnymi.
 
-### Performance Characteristics (v2.0.0, February 2026)
-- 🚀 **99.6% reduction in allocations** (2,700 → 12 per slide)
-- ⚡ **35-45% performance improvement** through memory optimization
-- 💎 **Production-grade architecture** with useMemo, static styles, calculated constants
-- 📊 **Stable build times**: 25-168ms
-- 🔧 **Zero breaking changes** - 100% backward compatible
+### Charakterystyka Wydajności (v2.0.0, Luty 2026)
+- 🚀 **99,6% redukcja alokacji pamięci** (2 700 → 12 na slajd)
+- ⚡ **35-45% wzrost wydajności** dzięki optymalizacji pamięci
+- 💎 **Architektura produkcyjna** z useMemo, statycznymi stylami, wyliczonymi stałymi
+- 📊 **Stabilne czasy budowania**: 25-168ms
+- 🔧 **Zero zmian łamiących kompatybilność** - 100% wstecznie kompatybilne
 
-### Visual Features
-- **Advanced spring physics**: Configurable stiffness and damping parameters
-- **12-particle animation system**: Circular arrangement with independent timing
-- **3-layer glow effects**: Multi-directional rotating illumination
-- **Energy wave animations**: Three expanding circular rings
-- **Dynamic HSL background**: Real-time color evolution
-- **Multi-level text shadows**: Depth and premium aesthetics
-- **Continuous motion effects**: Sine wave-based vibration and pulsing
+### Funkcje Wizualne
+- **Zaawansowana fizyka sprężyn**: Konfigurowalna sztywność i parametry tłumienia
+- **System 12 cząsteczek**: Ułożenie kołowe z niezależnym timingiem
+- **3-warstwowe efekty glow**: Wielokierunkowe obracające się oświetlenie
+- **Animacje fal energii**: Trzy rozszerzające się pierścienie
+- **Dynamiczne tło HSL**: Ewolucja kolorów w czasie rzeczywistym
+- **Wielopoziomowe cienie tekstu**: Głębia i estetyka premium
+- **Ciągłe efekty ruchu**: Wibracje i pulsacje oparte na falach sinusoidalnych
 
-**Default content**: 3 product slides (3 seconds each):
+**Domyślna zawartość**: 3 slajdy produktowe (po 3 sekundy każdy):
 - Eko Miód Leśny (19,99 zł)
 - Miód Akacjowy Premium (9,99 zł)
 - Pizza Margaritta (14,99 zł)
@@ -33,7 +33,7 @@ Generates professional 9-second Full HD (1920×1080) video advertisements for re
 src/
  ├─ constants.js        # 🎯 Globalne stałe (kolory, timings, spring configs)
  ├─ compositions/
- │   └─ RetailAd.jsx    # Main composition (clean 60 lines)
+ │   └─ RetailAd.jsx    # Główna kompozycja (czyste 60 linii)
  ├─ components/
  │   ├─ effects/        # ✨ Efekty wizualne (Particle, Glow, EnergyRing)
  │   │   ├── Particle.jsx
@@ -57,71 +57,71 @@ src/
 
 ## 🎨 Efekty Animacyjne
 
-###Animation Timeline
+### Oś Czasu Animacji
 
-### Frame Sequence
+### Sekwencja Klatek
 ```
-Frame 0-12:   Logo entrance with shake effect (spring: stiffness 300, damping 8)
-Frame 15-30:  Product name animation with rotation transition (-15° → 0°)
-Frame 30-32:  Price animation initiation
-Frame 30-40:  12 particles deploy in circular pattern (720° rotation)
-Frame 30-40:  3 energy rings expand sequentially (delays: 30, 35, 40)
-Frame 40-90:  Price vibration and pulse effects (continuous sine waves)
-Frame 45-58:  Description slide-up animation with scale
-Frame 60-90:  Full animation ensemble active
+Klatka 0-12:   Wejście logo z efektem shake (spring: sztywność 300, tłumienie 8)
+Klatka 15-30:  Animacja nazwy produktu z rotacją (-15° → 0°)
+Klatka 30-32:  Rozpoczęcie animacji ceny
+Klatka 30-40:  12 cząsteczek rozmieszcza się w kole (obrót 720°)
+Klatka 30-40:  3 pierścienie energii rozszerzają się sekwencyjnie (opóźnienia: 30, 35, 40)
+Klatka 40-90:  Wibracje i pulsacje ceny (ciągłe fale sinusoidalne)
+Klatka 45-58:  Animacja opisu przesuwającego się w górę ze skalowaniem
+Klatka 60-90:  Pełny zespół animacji aktywny
 ```
 
-### Technical Details
+### Szczegóły Techniczne
 
-#### Particle System
-- 12 particles arranged in 360° circular pattern (30° spacing)
-- Distance interpolation: 0 → 150px with spring physics
-- Rotation range: 0 → 720° (two complete rotations)
-- Opacity curve: 0 → 1 → 0 (fade in/out)
-- Gradient: Gold to orange
-- Box-shadow: 20px glow effect
+#### System Cząsteczek
+- 12 cząsteczek rozmieszczonych w kole 360° (odstęp 30°)
+- Interpolacja odległości: 0 → 150px z fizyką sprężyn
+- Zakres rotacji: 0 → 720° (dwa pełne obroty)
+- Krzywa przezroczystości: 0 → 1 → 0 (zanikanie)
+- Gradient: od złota do pomarańczy
+- Box-shadow: efekt świecenia 20px
 
-#### Multi-Layer Glow (3 layers)
-1. **Gold layer** (500px): 360° rotation, 50px blur, max opacity 0.9
-2. **Orange layer** (450px): -360° rotation, 40px blur, max opacity 0.7
-3. **White core** (300px): 180° rotation, 30px blur, max opacity 0.6
+#### Wielowarstwowy Glow (3 warstwy)
+1. **Warstwa złota** (500px): obrót 360°, rozmycie 50px, maks. przezroczystość 0.9
+2. **Warstwa pomarańczowa** (450px): obrót -360°, rozmycie 40px, maks. przezroczystość 0.7
+3. **Białe jądro** (300px): obrót 180°, rozmycie 30px, maks. przezroczystość 0.6
 
-#### Energy Rings
-- Ring 1: Delay 30 frames, scale 0.5 → 4, gold color
-- Ring 2: Delay 35 frames, scale 0.5 → 4.5, orange color
-- Ring 3: Delay 40 frames, scale 0.5 → 5, white color
-- All rings: box-shadow + inset shadow for depth
+#### Pierścienie Energii
+- Pierścień 1: Opóźnienie 30 klatek, skala 0.5 → 4, kolor złoty
+- Pierścień 2: Opóźnienie 35 klatek, skala 0.5 → 4.5, kolor pomarańczowy
+- Pierścień 3: Opóźnienie 40 klatek, skala 0.5 → 5, kolor biały
+- Wszystkie pierścienie: box-shadow + inset shadow dla głębi
 
-#### Text Shadow Effects
+#### Efekty Cieni Tekstu
 ```css
-/* Price - 4-level shadow depth */
-0 0 40px gold,           /* Inner glow */
+/* Cena - 4-poziomowa głębia cienia */
+0 0 40px gold,           /* Wewnętrzne świecenie */
 0 0 80px gold,           /* Aura */  
-0 0 120px orange,        /* Outer ring */
-0 0 160px white          /* Emission */
+0 0 120px orange,        /* Zewnętrzny pierścień */
+0 0 160px white          /* Emisja */
 ```
 
-📖 Getting Started
+📖 Pierwsze Kroki
 
-### Installation
+### Instalacja
 
 ```bash
 npm install
 ```
 
-### Development Mode
+### Tryb Deweloperski
 
-Launch Remotion Studio for live preview:
+Uruchom Remotion Studio do podglądu na żywo:
 
 ```bash
 npm start
 ```
 
-Opens a browser with the player where you can scrub through frames and preview animations in real-time.
+Otwiera przeglądarkę z odtwarzaczem, w którym możesz przewijać klatki i oglądać animacje w czasie rzeczywistym.
 
-### Rendering
+### Renderowanie
 
-Generate final video output:
+Wygeneruj finalne wideo:
 
 Wyrenderuj finalne wideo do pliku MP4:
 

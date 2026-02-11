@@ -1,49 +1,49 @@
-# Animation Technical Guide
+# Przewodnik Techniczny Animacji
 
-## Overview
+## Przegląd
 
-This document provides comprehensive technical specifications for the retail media video animation system. The implementation leverages Remotion's animation framework with carefully optimized physics-based motion and layered visual effects designed for high-impact retail advertising.
+Ten dokument zawiera kompleksowe specyfikacje techniczne dla systemu animacji wideo retail media. Implementacja wykorzystuje framework animacji Remotion z dokładnie zoptymalizowaną fizyką ruchu i warstwowymi efektami wizualnymi zaprojektowanymi dla reklam detalicznych o wysokim wpływie.
 
-### Performance Engineering (Update: February 2026)
-The codebase has been optimized to production-grade standards:
-- Pre-allocated particle arrays (eliminates 2,688 allocations per slide)
-- Memoized transforms and string operations (73% reduction in string ops per frame)
-- Static style objects extracted outside components
-- All timing parameters scale automatically with `TIMINGS.slideDuration`
+### Inżynieria Wydajności (Aktualizacja: Luty 2026)
+Kod został zoptymalizowany do standardów produkcyjnych:
+- Wstępnie przydzielone tablice cząsteczek (eliminuje 2688 alokacji na slajd)
+- Zmemoizowane transformacje i operacje na stringach (73% redukcja operacji stringowych na klatkę)
+- Obiekty statycznych stylów wyciągnięte poza komponenty
+- Wszystkie parametry czasu skalują się automatycznie z `TIMINGS.slideDuration`
 
-📊 **Performance Report**: [OPTIMIZATION_REPORT.md](../OPTIMIZATION_REPORT.md)
+📊 **Raport wydajności**: [OPTIMIZATION_REPORT.md](../OPTIMIZATION_REPORT.md)
 
-## Animation Effects
+## Efekty Animacyjne
 
-### 1. **Spring Physics System**
+### 1. **System Fizyki Sprężyn**
 ```javascript
-// Logo: stiffness: 300, damping: 8 - Controlled bounce
-// Product: stiffness: 300, damping: 7 - Enhanced dynamics  
-// Price: stiffness: 400, damping: 6 - High-energy entrance
+// Logo: sztywność: 300, tłumienie: 8 - Kontrolowane odbicie
+// Produkt: sztywność: 300, tłumienie: 7 - Zwiększona dynamika  
+// Cena: sztywność: 400, tłumienie: 6 - Wejście wysokoenergetyczne
 ```
 
-### 2. **Particle System (12 particles)**
-- Deployed in circular arrangement around price element
-- Individual particle delay: 2 frames per particle
-- Rotation: 720° during flight path
-- Distance: 0 → 150px with spring physics
-- Gold gradient with box-shadow illumination
+### 2. **System Cząsteczek (12 cząsteczek)**
+- Rozmieszczone w układzie kołowym wokół elementu ceny
+- Indywidualne opóźnienie cząsteczki: 2 klatki na cząsteczkę
+- Rotacja: 720° podczas ścieżki lotu
+- Odległość: 0 → 150px z fizyką sprężyn
+- Złoty gradient z oświetleniem box-shadow
 
-### 3. **Multi-Layer Glow Effect**
-- **Layer 1**: Gold (500px, blur 50px, rotation 360°)
-- **Layer 2**: Orange (450px, blur 40px, rotation -360°)
-- **Layer 3**: White core (300px, blur 30px, rotation 180°)
-- All layers pulse asynchronously
-- Opacity range: 0.3 → 0.9 (7-phase interpolation)
+### 3. **Wielowarstwowy Efekt Glow**
+- **Warstwa 1**: Złoto (500px, rozmycie 50px, rotacja 360°)
+- **Warstwa 2**: Pomarańczowy (450px, rozmycie 40px, rotacja -360°)
+- **Warstwa 3**: Białe jądro (300px, rozmycie 30px, rotacja 180°)
+- Wszystkie warstwy pulsują asynchronicznie
+- Zakres przezroczystości: 0.3 → 0.9 (7-fazowa interpolacja)
 
-### 4. **Energy Ring System**
-- 3 expanding circular waves
-- Timing delays: 30, 35, 40 frames
-- Scale progression: 0.5 → 3/4.5/5
-- Colors: gold, orange, white
-- Box-shadow + inset shadow for 3D depth effect
+### 4. **System Pierścieni Energii**
+- 3 rozszerzające się fale kołowe
+- Opóźnienia czasowe: 30, 35, 40 klatek
+- Progresja skalowania: 0.5 → 3/4.5/5
+- Kolory: złoty, pomarańczowy, biały
+- Box-shadow + inset shadow dla efektu głębi 3D
 
-### 5. **Dynamic Background Evolution**
+### 5. **Dynamiczna Ewolucja Tła**
 ```javascript
 HSL(155+shift, saturation, lightness)
 shift: 0 → 25 → -15
@@ -51,18 +51,18 @@ saturation: 40% → 65% → 50%
 lightness: 12% → 25% → 18% → 28%
 ```
 
-### 6. **Motion Dynamics System**
-- **Logo shake**: -5px → 3px during entrance
-- **Product oscillation**: Continuous sine wave (±2px)
-- **Price vibration**: Sine wave after entrance (±1.5°)
-- Adds organic motion and visual interest
+### 6. **System Dynamiki Ruchu**
+- **Shake logo**: -5px → 3px podczas wejścia
+- **Oscylacja produktu**: Ciągła fala sinusoidalna (±2px)
+- **Wibracje ceny**: Fala sinusoidalna po wejściu (±1.5°)
+- Dodaje organiczny ruch i zainteresowanie wizualne
 
-### 7. **Pulse Effects**
-- **Logo**: 1.0 → 1.12 → 1.15 (11-phase interpolation)
-- **Price**: 1.0 → 1.10 with vibration (6-phase)
-- Asynchronous pulsing creates dynamic visual rhythm
+### 7. **Efekty Pulsowania**
+- **Logo**: 1.0 → 1.12 → 1.15 (11-fazowa interpolacja)
+- **Cena**: 1.0 → 1.10 z wibracjami (6 faz)
+- Asynchroniczne pulsowanie tworzy dynamiczny wizualny rytm
 
-### 8. **Advanced Text Shadows**
+### 8. **Zaawansowane Cienie Tekstowe**
 ```css
 textShadow: `
   0 0 40px rgba(255, 215, 0, 1),      /* Gold inner glow */
@@ -74,10 +74,10 @@ textShadow: `
 ```
 
 ### 9. **WebKit Text Stroke**
-- Gold outline on text (2-3px)
-- Adds depth and premium visual quality
+- Złoty kontur na tekście (2-3px)
+- Dodaje głębię i wizualną jakość premium
 
-### 10. **Multiple Drop Shadows**
+### 10. **Wielokrotne Drop Shadows**
 ```css
 filter: `
   drop-shadow(0 0 30px rgba(255, 215, 0, 0.9))
@@ -85,22 +85,22 @@ filter: `
 `
 ```
 
-### 11. **Animated Vignette**
-- Pulsing edge darkening (0.3 → 0.7)
+### 11. **Animowane Vignette**
+- Pulsujące przyciemnienie krawędzi (0.3 → 0.7)
 - 7-fazowa interpolacja
-- Radial gradient od centrum
+- Radialny gradient od centrum
 
-### 12. **Multi-Layer Gradients**
-- Top gradient (200px, 0.3 opacity)
-- Bottom gradient (400px, 0.5 opacity)  
-- Corner light streaks (300×300px, złoty/pomarańczowy)
+### 12. **Wielowarstwowe Gradienty**
+- Górny gradient (200px, przezroczystość 0.3)
+- Dolny gradient (400px, przezroczystość 0.5)  
+- Narożne smugi świetlne (300×300px, złoty/pomarańczowy)
 - Opóźnione wejście (30+ klatek)
 
-### 13. **Rotation Effects**
-- Product rotate: -15° → 0° przy wejściu
-- Dodaje dramatyzmu do bounce
+### 13. **Efekty Rotacji**
+- Rotacja produktu: -15° → 0° przy wejściu
+- Dodaje dramatyzmu do odbicia
 
-### 14. **Scale Transformation Combos**
+### 14. **Kombinacje Transformacji Skali**
 ```javascript
 transform: `
   scale(${priceScale * priceGigaPulse}) 
@@ -187,9 +187,9 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 - **Format wyjściowy**: MP4 (H.264)
 - **Renderowanie**: ~3-5 sekund per produkt (zależne od CPU)
 
-## Technical Effects Summary
+## Podsumowanie Efektów Technicznych
 
-### Animation Components:
+### Komponenty Animacji:
 - ✅ **4 typy spring physics** (różne stiffness/damping)
 - ✅ **12 cząsteczek particle system** z rotacją 720°
 - ✅ **3 warstwy glow effect** (multi-directional rotation)
@@ -200,14 +200,14 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 - ✅ **4 typy shake/vibration** (sine waves, interpolation)
 - ✅ **Dynamic HSL background** (3-parameter evolution)
 - ✅ **WebKit text stroke** (premium outlining)
-- ✅ **Multiple drop shadows** (layered depth)
-- ✅ **Animated vignette** (7-phase pulse)
+- ✅ **Wielokrotne drop shadows** (warstwowa głębia)
+- ✅ **Animowane vignette** (7-fazowy puls)
 
 ### Liczba Klatek Kluczowych:
-- Frame 0: Start
-- Frame 5-14: Logo shake sequence
-- Frame 15: Product bounce start
-- Frame 30: PRICE EXPLOSION + particles + rings
+- Klatka 0: Start
+- Klatka 5-14: Sekwencja shake logo
+- Klatka 15: Start odbicia produktu
+- Klatka 30: START ANIMACJI CENY + cząsteczki + pierścienie
 - Frame 32: Particles start launching
 - Frame 35: Second energy ring
 - Frame 40: Third energy ring + price vibration
@@ -223,16 +223,16 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 - **Multi-brand**: Zmień logo colors przez props
 
 
-1. **Aggressive physics** - dynamic entry transitions with high-energy effects
-2. **Layering** - 10+ visual layers creating depth and dimension
-3. **Controlled chaos** - asynchronous pulsing animations for continuous engagement
-4. **Particle effects** - advanced particle system for premium visual impact
-5. **Multi-layer glow** - 3 rotating glow layers with different directional movements
-6. **Text shadows 4-tier** - gradient shadow progression from gold to white highlights
-7. **Shake & Vibration** - subtle continuous motion for energy conveyance
-8. **Energy rings** - expanding ripple effects for visual impact
-9. **Dynamic everything** - animated background, scale, rotation, and opacity
-10. **220px giant price** - large-format price display for maximum visibility
+1. **Agresywna fizyka** - dynamiczne przejścia wejściowe z wysokoenergetycznymi efektami
+2. **Warstwowość** - 10+ warstw wizualnych tworzących głębię i wymiary
+3. **Kontrolowany chaos** - asynchroniczne pulsujące animacje dla ciągłego zaangażowania
+4. **Efekty cząsteczkowe** - zaawansowany system cząsteczek dla wizualnego oddziaływania premium
+5. **Wielowarstwowy glow** - 3 obracające się warstwy glow z różnymi kierunkami ruchu
+6. **Cienie tekstowe 4-poziomowe** - gradientowa progresja cieni od złota do białych akcentjów
+7. **Shake & Vibracja** - subtelny ciągły ruch przekazujący energię
+8. **Pierścienie energii** - rozszerzające się efekty fal dla wizualnego wpływu
+9. **Dynamiczne wszystko** - animowane tło, skala, rotacja i przezroczystość
+10. **Gigantyczna cena 220px** - duży format wyświetlania ceny dla maksymalnej widoczności
 
 ## 📈 Performance Metrics
 
@@ -245,11 +245,11 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 
 1. Edytuj `src/data/data.json`
 2. Uruchom: `npm start`
-3. View output in browser
+3. Oglądaj wynik w przeglądarce
 4. Renderuj: `npm run build`
 
 ---
 
-**Built with Remotion + GitHub Copilot**
+**Zbudowane z Remotion + GitHub Copilot**
 
-*Production-grade retail media video generation system.*
+*Profesjonalny system generowania wideo retail media.*
