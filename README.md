@@ -1,30 +1,28 @@
-💥 Generator Wideo dla Retail Media - ULTRA EXTREME EDITION 💥🔥
+# Retail Media Video Generator
 
-✨ **Production-Ready MVP** - Zoptymalizowany, wydajny generator wideo reklamowych.
+**Production-Optimized MVP** - High-performance programmatic video generation for retail advertising.
 
-## 🎯 Przegląd
+## Overview
 
-Generuje profesjonalne 9-sekundowe wideo reklamowe Full HD (1920x1080) dla ekranów retail media z efektami wizualnymi.
+Generates professional 9-second Full HD (1920×1080) video advertisements for retail media displays with advanced visual effects.
 
-### ⚡ **Performance Optimized** (Luty 2026)
-- 🚀 **99.6% redukcja alokacji** (2,700 → 12 per slide)
-- ⚡ **35-45% lepsza wydajność** przez optymalizacje pamięci
-- 💎 **Production-grade** z useMemo, static styles, calculated constants
-- 📊 **Build times**: 25-168ms (stabilne)
+### Performance Characteristics (v2.0.0, February 2026)
+- 🚀 **99.6% reduction in allocations** (2,700 → 12 per slide)
+- ⚡ **35-45% performance improvement** through memory optimization
+- 💎 **Production-grade architecture** with useMemo, static styles, calculated constants
+- 📊 **Stable build times**: 25-168ms
 - 🔧 **Zero breaking changes** - 100% backward compatible
-**🔥 ULTRA-EKSTREMALNE FUNKCJE:**
-- 💥 **Ultra-Aggressive Spring**: Logo i produkty EKSPLODUJĄ na ekran (stiffness: 300-400, damping: 6-8)
-- ✨ **12-Particle System**: Cząsteczki wylatują wokół ceny z rotacją 720°
-- 🌟 **3-Layer Super Glow**: Multi-directional rotating light show
-- 💫 **Energy Rings**: 3 rozprzestrzeniające się fale energii
-- 🎨 **Dynamic HSL Evolution**: Tło zmienia 3 parametry jednocześnie
-- 🌀 **Shake & Vibration**: Continuous motion dla max energii
-- 💎 **4-Level Text Shadows**: Od złota przez pomarańcz do białej eksplozji
-- 📐 **Multi-Transform Combos**: Scale × Rotate × Translate jednocześnie
-- 🎭 **Animated Vignette**: Pulsujące brzegi ekranu
-- ⚡ **220px MEGA Price**: Największa cena w historii retail ads
 
-**Film zawiera 3 slajdy produktów** (po 3 sekundy każdy):
+### Visual Features
+- **Advanced spring physics**: Configurable stiffness and damping parameters
+- **12-particle animation system**: Circular arrangement with independent timing
+- **3-layer glow effects**: Multi-directional rotating illumination
+- **Energy wave animations**: Three expanding circular rings
+- **Dynamic HSL background**: Real-time color evolution
+- **Multi-level text shadows**: Depth and premium aesthetics
+- **Continuous motion effects**: Sine wave-based vibration and pulsing
+
+**Default content**: 3 product slides (3 seconds each):
 - Eko Miód Leśny (19,99 zł)
 - Miód Akacjowy Premium (9,99 zł)
 - Pizza Margaritta (14,99 zł)
@@ -35,7 +33,7 @@ Generuje profesjonalne 9-sekundowe wideo reklamowe Full HD (1920x1080) dla ekran
 src/
  ├─ constants.js        # 🎯 Globalne stałe (kolory, timings, spring configs)
  ├─ compositions/
- │   └─ RetailAd.jsx    # 🔥 GŁÓWNA KOMPOZYCJA (clean 60 lines)
+ │   └─ RetailAd.jsx    # Main composition (clean 60 lines)
  ├─ components/
  │   ├─ effects/        # ✨ Efekty wizualne (Particle, Glow, EnergyRing)
  │   │   ├── Particle.jsx
@@ -59,69 +57,71 @@ src/
 
 ## 🎨 Efekty Animacyjne
 
-### Sekwencja Klatek (Epic Timeline)
+###Animation Timeline
+
+### Frame Sequence
 ```
-Frame 0-12:   Logo WPADA z góry + shake effect (stiffness: 300)
-Frame 15-30:  Nazwa produktu EKSPLODUJE z rotacją -15° → 0°
-Frame 30-32:  🔥 PRICE EXPLOSION START - najważniejszy moment
-Frame 30-40:  12 cząsteczek wylatuje (720° rotation każda)
-Frame 30-35-40: 3 energy rings rozprzestrzeniają się (max scale: 5x)
-Frame 40-90:  Cena WIBRUJE i PULSUJE (continuous sine waves)
-Frame 45-58:  Opis slide-up + scale (dramatyczne wejście)
-Frame 60-90:  FULL SPECTACLE MODE - wszystko świeci i pulsuje
+Frame 0-12:   Logo entrance with shake effect (spring: stiffness 300, damping 8)
+Frame 15-30:  Product name animation with rotation transition (-15° → 0°)
+Frame 30-32:  Price animation initiation
+Frame 30-40:  12 particles deploy in circular pattern (720° rotation)
+Frame 30-40:  3 energy rings expand sequentially (delays: 30, 35, 40)
+Frame 40-90:  Price vibration and pulse effects (continuous sine waves)
+Frame 45-58:  Description slide-up animation with scale
+Frame 60-90:  Full animation ensemble active
 ```
 
-### 🔥 Szczegóły Efektów
+### Technical Details
 
 #### Particle System
-- 12 cząsteczek w układzie kołowym (360° / 12 = 30° każda)
-- Odległość: 0 → 150px (spring physics)
-- Rotacja: 0 → 720° (2 pełne obroty)
-- Opacity: 0 → 1 → 0 (fade in/out)
-- Gradient: złoty → pomarańczowy
-- Box-shadow: 20px glow
+- 12 particles arranged in 360° circular pattern (30° spacing)
+- Distance interpolation: 0 → 150px with spring physics
+- Rotation range: 0 → 720° (two complete rotations)
+- Opacity curve: 0 → 1 → 0 (fade in/out)
+- Gradient: Gold to orange
+- Box-shadow: 20px glow effect
 
-#### Multi-Layer Glow (3 warstwy)
-1. **Złota** (500px): Rotacja 360°, blur 50px, opacity max 0.9
-2. **Pomarańczowa** (450px): Rotacja -360°, blur 40px, opacity max 0.7
-3. **Biała** (300px): Rotacja 180°, blur 30px, opacity max 0.6
+#### Multi-Layer Glow (3 layers)
+1. **Gold layer** (500px): 360° rotation, 50px blur, max opacity 0.9
+2. **Orange layer** (450px): -360° rotation, 40px blur, max opacity 0.7
+3. **White core** (300px): 180° rotation, 30px blur, max opacity 0.6
 
 #### Energy Rings
-- Ring 1: Delay 30, scale 0.5 → 4, złoty
-- Ring 2: Delay 35, scale 0.5 → 4.5, pomarańczowy
-- Ring 3: Delay 40, scale 0.5 → 5, biały
-- Wszystkie z box-shadow + inset shadow
+- Ring 1: Delay 30 frames, scale 0.5 → 4, gold color
+- Ring 2: Delay 35 frames, scale 0.5 → 4.5, orange color
+- Ring 3: Delay 40 frames, scale 0.5 → 5, white color
+- All rings: box-shadow + inset shadow for depth
 
-#### Text Effects
+#### Text Shadow Effects
 ```css
-/* Cena - 4 poziomy cienia */
-0 0 40px gold,           /* Blask */
+/* Price - 4-level shadow depth */
+0 0 40px gold,           /* Inner glow */
 0 0 80px gold,           /* Aura */  
-0 0 120px orange,        /* Otoczka */
-0 0 160px white          /* Eksplozja */
+0 0 120px orange,        /* Outer ring */
+0 0 160px white          /* Emission */
 ```
 
-📖 **Pełna dokumentacja techniczna**: [ANIMATION_GUIDE.md](ANIMATION_GUIDE.md)
+📖 Getting Started
 
-## 🚀 Jak Zacząć
-
-### Instalacja
+### Installation
 
 ```bash
 npm install
 ```
 
-### Tryb Deweloperski
+### Development Mode
 
-Uruchom Remotion Studio, aby zobaczyć podgląd wideo na żywo:
+Launch Remotion Studio for live preview:
 
 ```bash
 npm start
 ```
 
-Otworzy się przeglądarka z odtwarzaczem, gdzie możesz przewijać klatki i widzieć animacje w czasie rzeczywistym.
+Opens a browser with the player where you can scrub through frames and preview animations in real-time.
 
-### Renderowanie
+### Rendering
+
+Generate final video output:
 
 Wyrenderuj finalne wideo do pliku MP4:
 

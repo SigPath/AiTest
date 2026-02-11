@@ -1,47 +1,47 @@
-# 💥 EKSTREMALNIE SPEKTAKULARNA REKLAMA - ANIMATION BIBLE 💥🔥
+# Animation Technical Guide
 
-## Przegląd
+## Overview
 
-To NIE jest zwykła reklama. To **EKSPLOZJA WIZUALNA** stworzona z wykorzystaniem najbardziej zaawansowanych technik animacji w Remotion. Każda klatka to perfekcja, każdy ruch ma cel - PRZYKUĆ UWAGĘ i NIE PUŚCIĆ.
+This document provides comprehensive technical specifications for the retail media video animation system. The implementation leverages Remotion's animation framework with carefully optimized physics-based motion and layered visual effects designed for high-impact retail advertising.
 
-### ⚡ Performance Engineering (Update: Luty 2026)
-Kod został zoptymalizowany na poziomie production-grade:
-- Pre-alokowane tablice cząsteczek (eliminacja 2,688 alokacji/slide)
-- Memoizowane transformy i stringi (73% mniej operacji string/frame)
-- Statyczne style wyciągnięte poza komponenty
-- Wszystkie timings skalują się z `TIMINGS.slideDuration`
+### Performance Engineering (Update: February 2026)
+The codebase has been optimized to production-grade standards:
+- Pre-allocated particle arrays (eliminates 2,688 allocations per slide)
+- Memoized transforms and string operations (73% reduction in string ops per frame)
+- Static style objects extracted outside components
+- All timing parameters scale automatically with `TIMINGS.slideDuration`
 
 📊 **Performance Report**: [OPTIMIZATION_REPORT.md](../OPTIMIZATION_REPORT.md)
 
-## 🚀 NOWE MEGA-EFEKTY
+## Animation Effects
 
-### 1. **Ultra-Aggressive Spring Physics**
+### 1. **Spring Physics System**
 ```javascript
-// Logo: stiffness: 300, damping: 8 - EPICKIE ODBICIE
-// Produkt: stiffness: 300, damping: 7 - MEGA BOUNCE  
-// Cena: stiffness: 400, damping: 6 - ABSOLUTNA EKSPLOZJA
+// Logo: stiffness: 300, damping: 8 - Controlled bounce
+// Product: stiffness: 300, damping: 7 - Enhanced dynamics  
+// Price: stiffness: 400, damping: 6 - High-energy entrance
 ```
 
-### 2. **Particle System (12 cząsteczek)**
-- Eksplodują wokół ceny w układzie kołowym
-- Każda cząsteczka z własnym opóźnieniem (2 klatki)
-- Rotacja 720° podczas lotu
-- Odległość 0 → 150px z spring physics
-- Złoty gradient z box-shadow
+### 2. **Particle System (12 particles)**
+- Deployed in circular arrangement around price element
+- Individual particle delay: 2 frames per particle
+- Rotation: 720° during flight path
+- Distance: 0 → 150px with spring physics
+- Gold gradient with box-shadow illumination
 
-### 3. **Multi-Layer Super Glow Effect**
-- **Warstwa 1**: Złota (500px, blur 50px, rotacja 360°)
-- **Warstwa 2**: Pomarańczowa (450px, blur 40px, rotacja -360°)
-- **Warstwa 3**: Biała core (300px, blur 30px, rotacja 180°)
-- Wszystkie warstwy pulsują asynchronicznie
-- Opacity: 0.3 → 0.9 (7-fazowa interpolacja)
+### 3. **Multi-Layer Glow Effect**
+- **Layer 1**: Gold (500px, blur 50px, rotation 360°)
+- **Layer 2**: Orange (450px, blur 40px, rotation -360°)
+- **Layer 3**: White core (300px, blur 30px, rotation 180°)
+- All layers pulse asynchronously
+- Opacity range: 0.3 → 0.9 (7-phase interpolation)
 
-### 4. **Energy Rings System**
-- 3 rozprzestrzeniające się pierścienie energii
-- Opóźnienia: 30, 35, 40 klatek
-- Skalowanie: 0.5 → 3/4.5/5
-- Kolory: złoty, pomarańczowy, biały
-- Box-shadow + inset shadow dla 3D efektu
+### 4. **Energy Ring System**
+- 3 expanding circular waves
+- Timing delays: 30, 35, 40 frames
+- Scale progression: 0.5 → 3/4.5/5
+- Colors: gold, orange, white
+- Box-shadow + inset shadow for 3D depth effect
 
 ### 5. **Dynamic Background Evolution**
 ```javascript
@@ -51,31 +51,31 @@ saturation: 40% → 65% → 50%
 lightness: 12% → 25% → 18% → 28%
 ```
 
-### 6. **Shake & Vibration System**
-- **Logo shake**: -5px → 3px przy wejściu
-- **Product shake**: Continuous sine wave (±2px)
-- **Price vibration**: Sine wave po wejściu (±1.5°)
-- Dodaje energii i "żywości"
+### 6. **Motion Dynamics System**
+- **Logo shake**: -5px → 3px during entrance
+- **Product oscillation**: Continuous sine wave (±2px)
+- **Price vibration**: Sine wave after entrance (±1.5°)
+- Adds organic motion and visual interest
 
-### 7. **Mega Pulse Effects**
-- **Logo**: 1.0 → 1.12 → 1.15 (11-fazowa)
-- **Cena**: 1.0 → 1.10 z vibration (6-fazowa)
-- Wszystko pulsuje asynchronicznie = chaos wizualny
+### 7. **Pulse Effects**
+- **Logo**: 1.0 → 1.12 → 1.15 (11-phase interpolation)
+- **Price**: 1.0 → 1.10 with vibration (6-phase)
+- Asynchronous pulsing creates dynamic visual rhythm
 
-### 8. **Ultra Text Shadows**
+### 8. **Advanced Text Shadows**
 ```css
 textShadow: `
-  0 0 40px rgba(255, 215, 0, 1),      /* Blask złoty */
+  0 0 40px rgba(255, 215, 0, 1),      /* Gold inner glow */
   0 0 80px rgba(255, 215, 0, 0.8),    /* Aura */
-  0 0 120px rgba(255, 165, 0, 0.6),   /* Pomarańczowa otoczka */
-  0 0 160px rgba(255, 255, 255, 0.4), /* Biała eksplozja */
-  0 12px 60px rgba(0, 0, 0, 0.8)      /* Głęboki cień */
+  0 0 120px rgba(255, 165, 0, 0.6),   /* Orange outer ring */
+  0 0 160px rgba(255, 255, 255, 0.4), /* White emission */
+  0 12px 60px rgba(0, 0, 0, 0.8)      /* Depth shadow */
 `
 ```
 
 ### 9. **WebKit Text Stroke**
-- Złote obramowanie tekstu (2-3px)
-- Dodaje DEPTH i premium feeling
+- Gold outline on text (2-3px)
+- Adds depth and premium visual quality
 
 ### 10. **Multiple Drop Shadows**
 ```css
@@ -86,7 +86,7 @@ filter: `
 ```
 
 ### 11. **Animated Vignette**
-- Pulsujące ciemnienie brzegów (0.3 → 0.7)
+- Pulsing edge darkening (0.3 → 0.7)
 - 7-fazowa interpolacja
 - Radial gradient od centrum
 
@@ -187,9 +187,9 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 - **Format wyjściowy**: MP4 (H.264)
 - **Renderowanie**: ~3-5 sekund per produkt (zależne od CPU)
 
-## 🔥 PODSUMOWANIE EFEKTÓW
+## Technical Effects Summary
 
-### Łącznie w Reklamie:
+### Animation Components:
 - ✅ **4 typy spring physics** (różne stiffness/damping)
 - ✅ **12 cząsteczek particle system** z rotacją 720°
 - ✅ **3 warstwy glow effect** (multi-directional rotation)
@@ -223,16 +223,16 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 - **Multi-brand**: Zmień logo colors przez props
 
 
-1. **Fizyka jest AGRESYWNA** - nie ma "miękkiego" wejścia, wszystko EKSPLODUJE
-2. **Layering** - 10+ warstw wizualnych nakładających się = GŁĘBIA
-3. **Chaos kontrolowany** - wszystko pulsuje asynchronicznie = nie ma nudy
-4. **Particle effects** - kto używa cząsteczek w web video? TY TERAZ
-5. **Multi-layer glow** - 3 warstwy obracające się w różnych kierunkach
-6. **Text shadows 4 poziomy** - od złota przez pomarańcz do białej eksplozji
-7. **Shake & Vibration** - subtelne ciągłe ruchy = energia
-8. **Energy rings** - wizualne fale energii jak w anime
-9. **Dynamic everything** - tło, skala, rotacja, opacity - wszystko się zmienia
-10. **220px giant price** - NAJWIĘKSZA cena jaką widziałeś w retail ad
+1. **Aggressive physics** - dynamic entry transitions with high-energy effects
+2. **Layering** - 10+ visual layers creating depth and dimension
+3. **Controlled chaos** - asynchronous pulsing animations for continuous engagement
+4. **Particle effects** - advanced particle system for premium visual impact
+5. **Multi-layer glow** - 3 rotating glow layers with different directional movements
+6. **Text shadows 4-tier** - gradient shadow progression from gold to white highlights
+7. **Shake & Vibration** - subtle continuous motion for energy conveyance
+8. **Energy rings** - expanding ripple effects for visual impact
+9. **Dynamic everything** - animated background, scale, rotation, and opacity
+10. **220px giant price** - large-format price display for maximum visibility
 
 ## 📈 Performance Metrics
 
@@ -245,11 +245,11 @@ background: 'radial-gradient(ellipse, rgba(0, 255, 255, 0.9) 0%, transparent 70%
 
 1. Edytuj `src/data/data.json`
 2. Uruchom: `npm start`
-3. Obejrzyj EKSPLOZJĘ w przeglądarce
+3. View output in browser
 4. Renderuj: `npm run build`
 
 ---
 
-**💥 Stworzone z absolutną pasją używając Remotion + GitHub Copilot 💥**
+**Built with Remotion + GitHub Copilot**
 
-*To nie jest reklama. To DOŚWIADCZENIE.*
+*Production-grade retail media video generation system.*
