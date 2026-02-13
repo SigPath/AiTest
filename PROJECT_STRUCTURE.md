@@ -28,6 +28,12 @@ src/
 │       └── ProductDescription.jsx
 └── data/
     └── data.json                # Dane produktów
+
+# Docker 🐳
+Dockerfile                        # Multi-stage build (dev + production)
+.dockerignore                     # Wykluczenie niepotrzebnych plików
+docker-compose.yml                # Orchestracja kontenerów
+DOCKER.md                         # Szczegółowa dokumentacja Dockera
 ```
 
 ## Kluczowe Usprawnienia

@@ -50,6 +50,12 @@ src/
  ├─ data/
  │   └─ data.json       # Dane produktów (JSON) - łatwe do automatyzacji
  └─ index.js            # Rejestracja kompozycji Remotion
+
+# Konfiguracja Dockera 🐳
+Dockerfile               # Multi-stage build (dev + production)
+.dockerignore           # Wykluczenie zbędnych plików
+docker-compose.yml      # Orchestracja kontenerów
+DOCKER.md              # Dokumentacja użycia Dockera
 ```
 
 📖 **Szczegóły struktury**: [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)  
@@ -132,6 +138,20 @@ npm run build
 Wyjście: `out/video.mp4` (Full HD, 9 sekund, 30fps)
 
 **Alternatywnie**: kliknij dwukrotnie `render.bat` w folderze projektu.
+
+### 🐳 Docker (Opcjonalnie)
+
+Jeśli preferujesz Docker, projekt zawiera pełne wsparcie konteneryzacji:
+
+```bash
+# Development - Remotion Studio w kontenerze
+docker-compose up remotion-dev
+
+# Production - Renderowanie wideo
+docker-compose run --rm remotion-render
+```
+
+📖 **Szczegółowa dokumentacja Dockera**: [DOCKER.md](DOCKER.md)
 
 ## 📊 Format Danych
 

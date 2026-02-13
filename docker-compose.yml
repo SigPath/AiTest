@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Development service - Remotion Studio
+  remotion-dev:
+    build:
+      context: .
+      target: development
+    container_name: remotion-studio
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount source code for hot reload
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./remotion.config.js:/app/remotion.config.js
+      - ./package.json:/app/package.json
+      # Persist node_modules
+      - node_modules:/app/node_modules
+      # Output directory
+      - ./out:/app/out
+    environment:
+      - NODE_ENV=development
+    command: npm start
+    networks:
+      - remotion-network
+
+  # Production service - Video rendering
+  remotion-render:
+    build:
+      context: .
+      target: production
+    container_name: remotion-render
+    volumes:
+      # Only mount output directory
+      - ./out:/app/out
+    environment:
+      - NODE_ENV=production
+    # Override to render specific composition
+    # command: npx remotion render RetailAd out/video.mp4
+    networks:
+      - remotion-network
+    profiles:
+      - production
+
+volumes:
+  node_modules:
+
+networks:
+  remotion-network:
+    driver: bridge
