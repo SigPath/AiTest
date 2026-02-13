@@ -24,7 +24,7 @@ COPY package*.json ./
 FROM base AS development
 
 # Install all dependencies (including devDependencies)
-RUN npm install
+RUN npm ci
 
 # Copy source code
 COPY . .
