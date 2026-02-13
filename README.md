@@ -22,10 +22,11 @@ Generuje profesjonalne 9-sekundowe reklamy wideo w Full HD (1920×1080) dla ekra
 - **Wielopoziomowe cienie tekstu**: Głębia i estetyka premium
 - **Ciągłe efekty ruchu**: Wibracje i pulsacje oparte na falach sinusoidalnych
 
-**Domyślna zawartość**: 3 slajdy produktowe (po 3 sekundy każdy):
+**Domyślna zawartość**: 4 slajdy produktowe (po 3 sekundy każdy):
 - Eko Miód Leśny (19,99 zł)
 - Miód Akacjowy Premium (9,99 zł)
 - Pizza Margaritta (14,99 zł)
+- Chleb Razowy Bio (7,99 zł) - PROMOCJA!
 
 ## 📁 Struktura Projektu
 
@@ -135,7 +136,7 @@ Wyrenderuj finalne wideo do pliku MP4:
 npm run build
 ```
 
-Wyjście: `out/video.mp4` (Full HD, 9 sekund, 30fps)
+Wyjście: `out/video.mp4` (Full HD, 12 sekund, 30fps)
 
 **Alternatywnie**: kliknij dwukrotnie `render.bat` w folderze projektu.
 
@@ -199,7 +200,7 @@ Każdy produkt ma 90 klatek (3 sekundy @ 30fps):
 - **Klatka 45-75**: Tekst promocyjny fade in
 - **Klatka 75-90**: Hold (czytelność)
 
-**Całość**: 270 klatek = 9 sekund (3 produkty × 3 sekundy)
+**Całość**: 360 klatek = 12 sekund (4 produkty × 3 sekundy)
 
 ## 🏗️ Zasady Architektury
 

@@ -17,6 +17,12 @@
       "product": "Pizza Margaritta",
       "price": "14,99 zł",
       "promoText": "Klasyczna pizza z San Marzano"
+    },
+    {
+      "brand": "FreshBake",
+      "product": "Chleb Razowy Bio",
+      "price": "7,99 zł",
+      "promoText": "Wypiekany codziennie rano - PROMOCJA!"
     }
   ]
 }
